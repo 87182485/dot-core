@@ -238,3 +238,6 @@ _Pvt_Extensions
 
 # Remove vscode config
 .vscode
+
+# Remove current appsettings
+appsettings.json

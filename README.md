@@ -11,3 +11,8 @@ Updating...
 2. Add Static file support by put "Microsoft.AspNetCore.StaticFiles" in project.json
 3. Add Default file suport
 4. Add Automapper, by adding "AutoMapper" in project.json
+
+# Notes.
+
+1. will not commit appsettings.json since to keep connection string safe
+2. 
