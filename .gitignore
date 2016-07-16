@@ -235,3 +235,6 @@ _Pvt_Extensions
 
 # Remove DS_Store
 .DS_Store
+
+# Remove vscode config
+.vscode
