@@ -14,17 +14,17 @@ var config = {
 
         function sort(a, b){
             // polyfills always first
-            if(a.names[0] === first){
+            if(a.names[0] === firstPackage){
                 return -1;
             }
 
             // main always last
-            if(a.names[0] === last){
+            if(a.names[0] === lastPackage){
                 return 1;
             }
 
             // vendor before app
-            if(a.names[0] !== first && b.names[0] === last){
+            if(a.names[0] !== firstPackage && b.names[0] === lastPackage){
                 return -1;
             }else{
                 return 1;

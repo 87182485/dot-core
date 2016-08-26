@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "moduleResolution":  "node",
+        "moduleResolution": "node",
         "removeComments": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
@@ -13,5 +13,9 @@
         "node_modules"
     ],
     "compileOnSave": false,
-    "buildOnSave": false
+    "buildOnSave": false,
+    "types": [
+        "jasmine",
+        "hammerjs"
+    ]
 }

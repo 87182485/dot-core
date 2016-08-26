@@ -3,12 +3,12 @@ var webpack = require('webpack');
 
 var helpers = require('./webpack.helpers');
 
-var commonsChuckPlugin = webpack.optimize.CommonseChunkPlugin;
-var autoprefixer = require('autoprefixer');
-var htmlWebpackPlugin = require('html-webpack-plugin');
-var extractTextPlugin = require('extract-text-webpack-plugin');
-var copyWebpackPlugin = require('copy-webpack-plugin');
-var cleanWebpackPlugin = require('clean-webpack-plugin');
+var CommonsChuckPlugin = webpack.optimize.CommonsChunkPlugin;
+var Autoprefixer = require('autoprefixer');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var config = {
     debug: true,
@@ -16,9 +16,9 @@ var config = {
     devtool: 'eval-source-map',
  
     entry: {
-        'polyfills': './angular2App/polyfills.ts',
-        'vendor': './angular2App/vendor.ts',
-        'app': './angular2App/boot.ts' // our angular app
+        'polyfills': './app/polyfills.ts',
+        'vendor': './app/vendor.ts',
+        'app': './app/boot.ts' // our angular app
     },
  
     output: {
@@ -83,7 +83,7 @@ var config = {
     },
  
     plugins: [
-        new cleanWebpackPlugin(
+        new CleanWebpackPlugin(
             [
                 './wwwroot/dist',
                 './wwwroot/fonts',
@@ -91,19 +91,19 @@ var config = {
             ]
         ),
  
-        new commonsChunkPlugin({
-            name: ['vendor', 'polyfills']
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor', 'polyfills']
         }),
  
-        new htmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             filename: 'index.html',
             inject: 'body',
             chunksSortMode: helpers.packageSort(['polyfills', 'vendor', 'app']),
-            template: 'angular2App/index.html'
+            template: 'app/index.html'
         }),
  
-        new copyWebpackPlugin([
-            { from: './angular2App/images/*.*', to: "assets/", flatten: true }
+        new CopyWebpackPlugin([
+            { from: './app/images/*.*', to: "assets/", flatten: true }
         ])
     ]
 };
